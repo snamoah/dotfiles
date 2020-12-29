@@ -1,0 +1,12 @@
+alias c="clear"
+alias rm="rm -rf"
+alias md="mkdir -p"
+alias cp="cp -r"
+
+
+# Yarn aliases
+alias y="yarn"
+alias ys="yarn start"
+alias yd="yarn dev"
+alias ysc="yarn start --reset-cache"
+
