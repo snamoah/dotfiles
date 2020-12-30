@@ -33,12 +33,20 @@ chgrp -R $GROUP $(brew --prefix)/*
 # Allow all group members to write to homebrew directory
 chmod -R g+w $(brew --prefix)/*
 
+# Homebrew tap
+brew tap mongodb/brew
+
 # brew install tools
 for tool in 'tree' \
 	'git' \
 	'git-flow' \
 	'gnupg' \
+	'redis' \
 	'openssh' \
+	'mongodb-community@4.4' \
+	'awscli' \
+	'awsebcli' \
+	'jq' \
 	'findutils'; do
 
 	if hash $tool 2>/dev/null; then
@@ -61,6 +69,10 @@ for app in 'toptracker' \
 		brew install --cask $app
 	fi
 done
+
+# Start services
+brew services start mongodb-community@4.4
+brew services start redis
 
 # clean up
 brew cleanup
